@@ -13,10 +13,23 @@ class Todo {
             this._todoElement.remove();
         });
 
+        this._todoDate.addEventListener("click", () => {
+            this.todoDate.add();
+        })
+
     }
 
     _dateEl () {
         //Add the date stuff from index.js
+       this._todoDate = this._todoElement.querySelector(".todo__date");
+        this._dueDate = new Date(this._data.date);
+        if (!isNaN(this._dueDate)) {
+          this._todoDate.textContent = `Due: ${this._dueDate.toLocaleString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}`;
+        }
     }
 
     _deleteEl () {
@@ -46,6 +59,8 @@ class Todo {
         this._generateCheckboxEl();
 
         this._deleteEl();
+
+        this._dateEl();
 
         this._setEventListeners();
 

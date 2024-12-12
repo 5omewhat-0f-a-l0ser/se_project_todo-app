@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
+
 import {initialTodos, validationConfig} from "../utils/constants.js";
 import Todo from "../components/Todo.js";
-console.log(initialTodos);
-console.log(validationConfig);
+
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -75,6 +77,8 @@ addTodoForm.addEventListener("submit", (evt) => {
   // Create a date object and adjust for timezone
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+
+  
 
   const values = { name, date };
   const todo = generateTodo(values);
