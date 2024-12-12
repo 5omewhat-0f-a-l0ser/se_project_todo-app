@@ -1,6 +1,6 @@
 class Todo {
-    constructor(data, selector) {
-        this._data = data;
+    constructor(_data, selector) {
+        this.__data = data;
         this._templateElement = document.querySelector(selector);
     }
 
@@ -16,12 +16,12 @@ class Todo {
           const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
           
 
-        todoNameEl.textContent = this._data.name;
+        todoNameEl.textContent = this.__data.name;
         // todo - assign completed status
-        todoCheckboxEl.checked = this._data.completed;
+        todoCheckboxEl.checked = this.__data.completed;
 
-        todoCheckboxEl.id = `todo-${data.id}`;
-        todoLabel.setAttribute("for", `todo-${data.id}`);
+        todoCheckboxEl.id = `todo-${this._data.id}`;
+        todoLabel.setAttribute("for", `todo-${this._data.id}`);
 
         console.log(this._templateElement); // Check the template element
         console.log(this._templateElement.content.querySelector(".todo")); // Check the .todo element
