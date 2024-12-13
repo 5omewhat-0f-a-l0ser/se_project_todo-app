@@ -1,5 +1,22 @@
+class FormValidate {
+    constructor(settings, formEl) {
+        this._formSelector = settings.formSelector;
+        this._inputSelector = settings.inputSelector;
+        this._submitButtonSelector = settings.submitButtonSelector;
+        this._errorClass = settings.errorClass;
+        this._inputErrorClass = settings.inputErrorClass;
+        this._inactiveButtonClass = settings.inactiveButtonClass;
+        this._formEl;
+    }
+
+    enableValidation() {
+
+    }
+}
 
 
+
+export default FormValidate;
 
 
 //@@ -0,0 +1,72 @@
