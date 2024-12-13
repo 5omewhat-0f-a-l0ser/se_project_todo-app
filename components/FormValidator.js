@@ -24,16 +24,30 @@ class FormValidate {
             });
         });
     }
+    _showInputError = (inputElement, errorMessage) => {
+      const  errorElementId = `#${inputElement.id}-error`;
+      const  errorElement = this._formEl.querySelector(errorElementId);
+      inputElement.classList.add(this._inputErrorClass);
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add(this._errorClass);
+    };
 
-    _checkInputValidity = (this._formEl, inputElement) => {
-        if (!inputElement.validity.valid) {
-          _showInputError(
+    _hideInputError = (inputElement) => {
+      const  errorElementId = `#${inputElement.id}-error`;
+      const  errorElement = this._formEl.querySelector(errorElementId);
+      inputElement.classList.remove(this._inputErrorClass);
+      errorElement.classList.remove(this._errorClass);
+      errorElement.textContent = "";
+    };
+    _checkInputValidity = (inputElement) => {
+        if (!inputElement.validity) {
+          this._showInputError(
             this._formEl,
             inputElement,
             inputElement
           );
         } else {
-          _hideInputError(this._formEl, inputElement);
+            this._hideInputError(this._formEl, inputElement);
         }
     }
 
@@ -73,18 +87,5 @@ export default FormValidate;
 
 
 //@@ -0,0 +1,72 @@
-//const showInputError = (this._formEl, inputElement, errorMessage, settings) => {
-//  const errorElementId = `#${inputElement.id}-error`;
-//  const errorElement = this._formEl.querySelector(errorElementId);
-//  inputElement.classList.add(settings.inputErrorClass);
-//  errorElement.textContent = errorMessage;
-//  errorElement.classList.add(settings.errorClass);
-//};
-//const hideInputError = (this._formEl, inputElement, settings) => {
-//  const errorElementId = `#${inputElement.id}-error`;
-//  const errorElement = this._formEl.querySelector(errorElementId);
-//  inputElement.classList.remove(settings.inputErrorClass);
-//  errorElement.classList.remove(settings.errorClass);
-//  errorElement.textContent = "";
-//};
+
 //enableValidation(validationConfig);
