@@ -86,6 +86,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   closeModal(addTodoPopup);
 });
 
+
 initialTodos.forEach((item) => {
   const todo = generateTodo(item);
   todosList.append(todo);

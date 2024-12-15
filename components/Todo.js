@@ -13,13 +13,9 @@ class Todo {
             this._todoElement.remove();
         });
 
-        this._todoDate.addEventListener("click", () => {
-            this.todoDate.add();
-        })
-
     }
 
-    _dateEl () {
+    _setDateEl () {
         //Add the date stuff from index.js
        this._todoDate = this._todoElement.querySelector(".todo__date");
         this._dueDate = new Date(this._data.date);
@@ -30,10 +26,6 @@ class Todo {
             day: "numeric",
           })}`;
         }
-    }
-
-    _deleteEl () {
-       this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     }
 
     _generateCheckboxEl () {
@@ -58,9 +50,7 @@ class Todo {
         
         this._generateCheckboxEl();
 
-        this._deleteEl();
-
-        this._dateEl();
+        this._setDateEl();
 
         this._setEventListeners();
 

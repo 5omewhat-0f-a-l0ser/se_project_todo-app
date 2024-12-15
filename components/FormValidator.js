@@ -9,19 +9,19 @@ class FormValidate {
       this._formEl = formEl;
   }
   _setEventListeners() {
-      this._inputList = Array.from(
-          this._formEl.querySelectorAll(this._inputSelector),
-        );
-        this._buttonElement = this._formEl.querySelector(
-          this._submitButtonSelector,
-        );
-        this._toggleButtonState(this._inputList, this._buttonElement);
-        this._inputList.forEach((inputElement) => {
-          inputElement.addEventListener("input", () => {
-              this._checkInputValidity(inputElement);
-              this._toggleButtonState(this._inputList, this._buttonElement);
-          });
+    this._inputList = Array.from(
+      this._formEl.querySelectorAll(this._inputSelector)
+    );
+    this._buttonElement = this._formEl.querySelector(
+      this._submitButtonSelector
+    );
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement);
+        this._toggleButtonState();
       });
+    });
   }
   _showInputError = (inputElement, errorMessage) => {
     const  errorElementId = `#${inputElement.id}-error`;
@@ -64,13 +64,13 @@ class FormValidate {
         }
   }
   enableValidation = () => {
-      this.formEl = document.querySelector(this._formSelector);
       this._formEl.addEventListener("submit", (evt) => {
+        this._resetValidation();
         evt.preventDefault();
-  });
+      });
   this._setEventListeners();
 
-  this._resetValidation();
+ 
   }
   
   _resetValidation = () => {
