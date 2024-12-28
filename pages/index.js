@@ -4,6 +4,7 @@ console.log(uuidv4);
 import {initialTodos, validationConfig} from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidate from "../components/FormValidator.js";
+import Section from '../utils/section.js';
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -11,6 +12,14 @@ const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
+
+const section = new Section({
+  items: [],
+  renderer: () => {},
+  containerSelector: ".todos__list",
+});
+
+renderItems(element);
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
