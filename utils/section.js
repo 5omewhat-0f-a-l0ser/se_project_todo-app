@@ -5,19 +5,14 @@ class Section {
        this._containerSelector = document.querySelector(containerSelector);
     }
 
-    _renderer() {
-        const todo = generateTodo(item);
-        todosList.append(todo);
-    }
-
     renderItems() {
         this._items.foreach((item) => {
             this._renderer(item);
         })
     }
 
-    addItem(element) {
-        this._containerSelector.append(element);
+    addItem(containerSelector) {
+        this._containerSelector.append(todo);
     }
 }
 export default Section;
