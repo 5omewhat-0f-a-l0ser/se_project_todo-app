@@ -4,8 +4,7 @@ class Popup{
         this._popupCloseBtn = this._popupElement.querySelector(".popup__close");
     };
 
-    _handleEscapeClose() {
-        console.log("key was used");
+    _handleEscapeClose(evt) {
         if (evt.key === "Escape") {
             this.close();
         };
@@ -18,6 +17,7 @@ class Popup{
 
     close() {
         this._popupElement.classList.remove("popup_visible");
+        document.addEventListener('keydown', this._handleEscapeClose());
     }
 
     setEventListeners() {
