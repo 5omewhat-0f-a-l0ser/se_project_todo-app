@@ -5,6 +5,7 @@ import {initialTodos, validationConfig} from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidate from "../components/FormValidator.js";
 import Section from '../utils/section.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -13,19 +14,14 @@ const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
-const section = new Section({
-  items: initialTodos,
-  renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
-  }
-}, '.todos__list');
 
-section.renderItems();
-
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
+const addTodoPopup = new PopupWithForm({
+  popupSelector: "#add-todo-popup",
+  handleFormSubmit: () => {};
+});
+//const openModal = (modal) => {
+//  modal.classList.add("popup_visible");
+//};
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
@@ -35,15 +31,22 @@ const closeModal = (modal) => {
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
-
+  const section = new Section({
+    items: initialTodos,
+    renderer: (item) => {
+      const todo = generateTodo(item);
+      section.addItem(todo);
+   }
+  }, '.todos__list'); 
+  section.renderItems();
 // to be removed...  
-//  const todoElement = todoTemplate.content
+//  const todoElement = todoTemplate.content;
 //    .querySelector(".todo")
 //    .cloneNode(true);
 //  const todoNameEl = todoElement.querySelector(".todo__name");
 //  const todoCheckboxEl = todoElement.querySelector(".todo__completed");
-//  const todoLabel = todoElement.querySelector(".todo__label");
-//  const todoDate = todoElement.querySelector(".todo__date");
+//  const todoLabel = todoElement.querySelector(".todo__label") 
+//const todoDate = todoElement.querySelector(".todo__date");
 //  const todoDeleteBtn = todoElement.querySelector(".todo__delete-btn");
 //
 //  todoNameEl.textContent = data.name;
@@ -72,8 +75,11 @@ const generateTodo = (data) => {
  return todoElement;
 };
 
+
+
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopup);
+ // openModal(addTodoPopup);
+ addTodoPopup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
