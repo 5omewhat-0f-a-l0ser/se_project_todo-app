@@ -8,24 +8,24 @@ import Section from '../utils/section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
-const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+const addTodoPopupEL = document.querySelector("#add-todo-popup");
+const addTodoForm = addTodoPopupEL.querySelector(".popup__form");
+const addTodoCloseBtn = addTodoPopupEL.querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {};
+  handleFormSubmit: () => {},
 });
 //const openModal = (modal) => {
 //  modal.classList.add("popup_visible");
 //};
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
+//const closeModal = (modal) => {
+//  modal.classList.remove("popup_visible");
+//};
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
@@ -75,15 +75,23 @@ const generateTodo = (data) => {
  return todoElement;
 };
 
+function handleEscapeClose(evt) {
+  if (evt.key === "Escape") {
+    //find the currently opened modal
+    
+    //and close it
+  }
+};
 
 
 addTodoButton.addEventListener("click", () => {
- // openModal(addTodoPopup);
+ // openModal(addTodoPopupEL);
  addTodoPopup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopup);
+  //closeModal(addTodoPopupEL);
+  addTodoPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
@@ -100,7 +108,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
-  closeModal(addTodoPopup);
+  closeModal(addTodoPopupEL);
 });
 
 const renderTodo = (item) => {
