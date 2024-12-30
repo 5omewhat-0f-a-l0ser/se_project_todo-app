@@ -75,15 +75,6 @@ const generateTodo = (data) => {
  return todoElement;
 };
 
-function handleEscapeClose(evt) {
-  if (evt.key === "Escape") {
-    //find the currently opened modal
-    
-    //and close it
-  }
-};
-
-
 addTodoButton.addEventListener("click", () => {
  // openModal(addTodoPopupEL);
  addTodoPopup.open();

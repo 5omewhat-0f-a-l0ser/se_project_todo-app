@@ -21,11 +21,17 @@ class Popup{
         document.removeEventListener("keyup", this._handleEscapeClose)
     }
 
-    setEventListener() {
-        this._popupElement("mousedown", this._popupCloseBtn)
-            if (evt.target === "click") {
+    setEventListeners() {
+        this._popupCloseBtn.addEventListener("click", () => {
+            this.close();
+        });
+
+        this._popupElement.addEventListener("mousedown", (evt) => {
+            if (evt.target === evt.currentTarget) {
                 this.close();
             }
-        };
+        });
+        
+    }
 }
 export default Popup;
