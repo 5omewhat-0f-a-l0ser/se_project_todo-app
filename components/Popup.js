@@ -16,21 +16,18 @@ class Popup{
         document.addEventListener("keyup", this._handleEscapeClose);
     }
 
-    close(){
+    close() {
         this._popupElement.classList.remove("popup_visible");
         document.removeEventListener("keyup", this._handleEscapeClose)
     }
 
-    setEventListeners() {
-        this._popupCloseBtn.addEventListener("click", () => {
-            this.close();
-
-            this._popupElement.addEventListener("mousedown", (evt) => {
-                if (evt.target)
-            });
-        });
+    setEventListener() {
+        this._popupElement("mousedown", this._popupCloseBtn) {
+            if (evt.target === "click") {
+                this.close();
+            }
+        };
     }
-
 }
 
 export default Popup;
