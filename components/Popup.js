@@ -5,10 +5,10 @@ class Popup{
         this._handleEscapeClose = this._handleEscapeClose.bind(this);
     };
 
-    _handleEscapeClose =(evt) => {
+    _handleEscapeClose(evt) {
         if (evt.key === "Escape") {
-            this.close();
-        };
+           this.close();
+        }
     }
 
     open() {
@@ -25,6 +25,10 @@ class Popup{
     setEventListeners() {
         this._popupCloseBtn.addEventListener("click", () => {
             this.close();
+
+            this._popupElement.addEventListener("mousedown", (evt) => {
+                if (evt.target)
+            });
         });
     }
 
