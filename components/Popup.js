@@ -17,7 +17,10 @@ class Popup{
 
     close() {
         this._popupElement.classList.remove("popup_visible");
-        document.addEventListener('keydown', this._handleEscapeClose());
+        document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('keydown', this._handleEscapeClose.bind(this));
+        });
+        console.log("Am I working?");
     }
 
     setEventListeners() {
