@@ -22,12 +22,10 @@ class Popup{
     }
 
     setEventListener() {
-        this._popupElement("mousedown", this._popupCloseBtn) {
+        this._popupElement("mousedown", this._popupCloseBtn)
             if (evt.target === "click") {
                 this.close();
             }
         };
-    }
 }
-
 export default Popup;
