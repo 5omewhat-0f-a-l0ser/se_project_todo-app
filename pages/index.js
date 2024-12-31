@@ -19,6 +19,8 @@ const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: () => {},
 });
+
+addTodoPopup.setEventListeners();
 //const openModal = (modal) => {
 //  modal.classList.add("popup_visible");
 //};
