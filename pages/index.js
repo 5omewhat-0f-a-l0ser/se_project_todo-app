@@ -6,6 +6,7 @@ import Todo from "../components/Todo.js";
 import FormValidate from "../components/FormValidator.js";
 import Section from '../utils/section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import TodoCounter from '../components/TodoCounter.js';
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEL = document.querySelector("#add-todo-popup");
@@ -14,6 +15,7 @@ const addTodoCloseBtn = addTodoPopupEL.querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
+const todoCounter = new TodoCounter(".counter__text");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
