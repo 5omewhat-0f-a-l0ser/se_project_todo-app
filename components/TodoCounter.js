@@ -2,9 +2,9 @@ class TodoCounter {
     // todos should be the array of initial todos
     // selector is the selector for the counter text element
     constructor(todos, selector) {
-      this._element = // select the appropriate element
-      this._completed = // number of completed todos
-      this._total = // the total number of todos
+      this._element = document.querySelector(selector);
+      this._completed = todos.length;
+      this._total =  0;
     }
     
     // Call this when a checkbox is clicked, and when a completed
@@ -13,6 +13,13 @@ class TodoCounter {
       // if increment is true, add 1 to this._completed. Otherwise,  
       // subtract 1. In either case, call the method to update   
       // the text content.
+      if (increment) {
+        this._completed++;
+        this._total++;
+      } else {
+        this._completed--;
+        this._total--;
+      }
     };
   
     // Call this when a to-do is deleted, or when a to-do is   
@@ -20,7 +27,12 @@ class TodoCounter {
     updateTotal = (increment) => {
       // if increment is true, add 1 to this._total. Otherwise, 
       // subtract 1. In either case, call the method to update the  
-      // text content.  
+      // text content. 
+      if (increment) {
+        this._total++;
+      } else {
+        this._total--;
+      }
     };
   
     // Call the method to update the text content
