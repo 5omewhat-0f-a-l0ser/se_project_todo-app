@@ -11,7 +11,7 @@ class Section {
         })
     }
 
-    addItem(containerSelector) {
+    addItem(todo) {
         this._containerSelector.append(todo);
     }
 }
