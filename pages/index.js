@@ -84,12 +84,13 @@ const generateTodo = (data) => {
 };
 
 const section = new Section({
-    items: initialTodos,
-    renderer: (item) => {
-      const todo = generateTodo(item);
-      section.addItem(todo);
-   }
-  }, '.todos__list'); 
+  items: initialTodos,
+  renderer: (item) => {
+    const todo = generateTodo(item);
+    section.addItem(todo);
+ }, 
+ containerSelector: '.todos__list' //here
+});  
 section.renderItems(); 
 
 addTodoButton.addEventListener("click", () => {
@@ -116,7 +117,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
-  closeModal(addTodoPopupEL);
+ addTodoPopup.close()
 });
 
 const renderTodo = (item) => {
