@@ -46,14 +46,7 @@ addTodoPopup.setEventListeners();
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
-  const section = new Section({
-    items: initialTodos,
-    renderer: (item) => {
-      const todo = generateTodo(item);
-      section.addItem(todo);
-   }
-  }, '.todos__list'); 
-  section.renderItems();
+  
 // to be removed...  
 //  const todoElement = todoTemplate.content;
 //    .querySelector(".todo")
@@ -89,6 +82,15 @@ const generateTodo = (data) => {
 //
  return todoElement;
 };
+
+const section = new Section({
+    items: initialTodos,
+    renderer: (item) => {
+      const todo = generateTodo(item);
+      section.addItem(todo);
+   }
+  }, '.todos__list'); 
+section.renderItems(); 
 
 addTodoButton.addEventListener("click", () => {
  // openModal(addTodoPopupEL);
