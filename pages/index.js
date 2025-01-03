@@ -117,7 +117,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
- addTodoPopup.close()
+ addTodoPopup.close();
 });
 
 const renderTodo = (item) => {
