@@ -43,8 +43,18 @@ addTodoPopup.setEventListeners();
 //};
 
 // The logic in this function should all be handled in the Todo class.
+
+function handleCheck(isCompleted) {
+  todoCounter.updateCompleted(isCompleted);
+}
+
+function handleDelete(isCompleted) {
+  todoCounter.updateCompleted(false);
+}
+
+
 const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template");
+  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
   const todoElement = todo.getView();
   
 // to be removed...  
