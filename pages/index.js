@@ -15,7 +15,8 @@ const addTodoCloseBtn = addTodoPopupEL.querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
-const todoCounter = new TodoCounter(".counter__text");
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+todoCounter._updateText();
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
