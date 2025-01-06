@@ -12,7 +12,6 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEL = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEL.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopupEL.querySelector(".popup__close");
-// const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -38,10 +37,15 @@ addTodoPopup.setEventListeners();
 
 function handleCheck(isCompleted) {
   todoCounter.updateCompleted(isCompleted);
+  console.log(isCompleted);
 }
 
 function handleDelete(isCompleted) {
-  todoCounter.updateCompleted(false);
+  if (isCompleted) {
+    todoCounter.updateCompleted(false);
+  }
+
+  console.log("worked");
 }
 
 

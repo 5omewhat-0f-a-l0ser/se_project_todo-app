@@ -14,8 +14,9 @@ class Todo {
         this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
         
         this._todoCheckboxEl.addEventListener("change", () => {
-            this._data.completed = !this._data.completed;
+            this._data.completed = !this._todoCheckboxEl.completed;
             this._handleCheck(this._data.completed);
+            console.log(this._data.completed);
         });
         //when clicked, change completion from true to false
         this._todoDeleteBtn.addEventListener("click", () => {
