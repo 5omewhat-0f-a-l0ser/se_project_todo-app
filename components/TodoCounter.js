@@ -16,8 +16,7 @@ class TodoCounter {
         this._completed--;
       }
       this._updateText();
-
-      console.log(increment);
+      
     };
     
     updateTotal = (increment) => {

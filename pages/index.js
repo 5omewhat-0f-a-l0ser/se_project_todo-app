@@ -45,7 +45,7 @@ function handleDelete(isCompleted) {
     todoCounter.updateCompleted(false);
   }
 
-  console.log("worked");
+  todoCounter.updateTotal(false);
 }
 
 
