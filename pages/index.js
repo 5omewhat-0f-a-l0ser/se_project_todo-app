@@ -32,6 +32,8 @@ const addTodoPopup = new PopupWithForm({
 
     addTodoPopup.close();
     addTodoForm.reset();
+
+    todoCounter.updateTotal(true);
   },
 });
 
