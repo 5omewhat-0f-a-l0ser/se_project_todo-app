@@ -4,7 +4,7 @@ console.log(uuidv4);
 import {initialTodos, validationConfig} from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidate from "../components/FormValidator.js";
-import Section from '../components/section.js';
+import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import TodoCounter from '../components/TodoCounter.js';
 
@@ -25,13 +25,12 @@ const addTodoPopup = new PopupWithForm({
     const id = uuidv4();
 
     const values = { name, date: new Date(dateInput), id };
-    const todo = generateTodo(values);
-    todosList.append(todo);
+    renderTodo();
 
-    newTodoValidator._resetValidation();
+    newTodoValidator.resetValidation();
 
     addTodoPopup.close();
-    addTodoForm.reset();
+    //addTodoForm.reset();
 
     todoCounter.updateTotal(true);
   },
@@ -64,20 +63,19 @@ const generateTodo = (data) => {
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
+    renderTodo();
  }, 
  containerSelector: '.todos__list' 
 });  
 section.renderItems(); 
 
-addTodoButton.addEventListener("click", () => {
- addTodoPopup.open();
-});
-
-addTodoCloseBtn.addEventListener("click", () => {
-  addTodoPopup.close();
-});
+//addTodoButton.addEventListener("click", () => {
+// addTodoPopup.open();
+//});
+//
+//addTodoCloseBtn.addEventListener("click", () => {
+//  addTodoPopup.close();
+//});
 
 //addTodoForm.addEventListener("submit", (evt) => {
 //  evt.preventDefault();
@@ -96,9 +94,9 @@ addTodoCloseBtn.addEventListener("click", () => {
 // addTodoPopup.close();
 //});
 
-const renderTodo = (item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
+function renderTodo(data){
+  const todo = generateTodo(data);
+  section.addItem(todo);
 };
 
 const newTodoValidator = new FormValidate(validationConfig, addTodoForm);
