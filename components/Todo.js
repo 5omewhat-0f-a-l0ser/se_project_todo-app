@@ -52,11 +52,7 @@ class Todo {
           .querySelector(".todo")
           .cloneNode(true);
 
-        this._todoNameEl = this._todoElement.querySelector(".todo__name");
-        this._todoLabel = this._todoElement.querySelector(".todo__label");
-        this._todoDate = this._todoElement.querySelector(".todo__date");
-        this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-          
+        this._todoNameEl = this._todoElement.querySelector(".todo__name");     
         this._todoNameEl.textContent = this._data.name;
         
         this._generateCheckboxEl();

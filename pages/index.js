@@ -4,7 +4,7 @@ console.log(uuidv4);
 import {initialTodos, validationConfig} from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidate from "../components/FormValidator.js";
-import Section from '../utils/section.js';
+import Section from '../components/section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import TodoCounter from '../components/TodoCounter.js';
 

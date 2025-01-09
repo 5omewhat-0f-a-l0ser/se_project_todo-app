@@ -64,14 +64,12 @@ class FormValidate {
         }
   }
   enableValidation = () => {
-      this._formEl.addEventListener("submit", (evt) => {
-        //this._resetValidation();
-        evt.preventDefault();
-      });
-  this._setEventListeners();
-
- 
-  }
+    this._formEl.addEventListener("submit", (evt) => {
+      //this._resetValidation();
+      evt.preventDefault();
+    });
+    this._setEventListeners();
+  };
   
   _resetValidation = () => {
     this._formEl.reset();
