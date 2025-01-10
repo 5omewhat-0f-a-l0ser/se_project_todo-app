@@ -25,7 +25,7 @@ const addTodoPopup = new PopupWithForm({
     const id = uuidv4();
 
     const values = { name, date: new Date(dateInput), id };
-    renderTodo();
+    renderTodo(values);
 
     newTodoValidator.resetValidation();
 
@@ -63,7 +63,7 @@ const generateTodo = (data) => {
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    renderTodo();
+    renderTodo(item);
  }, 
  containerSelector: '.todos__list' 
 });  

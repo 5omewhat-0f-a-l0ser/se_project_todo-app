@@ -1,8 +1,9 @@
 class Section {
-    constructor({ items, renderer, selector }) {
+    constructor({ items, renderer, container }) {
        this._items = items;
        this._renderer = renderer;
-       this._containerSelector = document.querySelector(selector);
+       this._container = document.querySelector(container);
+       console.log(container);
     }
 
     renderItems() {
@@ -12,7 +13,8 @@ class Section {
     }
 
     addItem(todo) {
-        this._containerSelector.append(todo);
+        this._container.append(todo);
     }
 }
+
 export default Section;
