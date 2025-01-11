@@ -71,7 +71,7 @@ class FormValidate {
     this._setEventListeners();
   };
   
-  _resetValidation = () => {
+  resetValidation = () => {
     this._formEl.reset();
     this._toggleButtonState();
   };

@@ -69,6 +69,10 @@ const section = new Section({
 });    
 section.renderItems(); 
 
+addTodoButton.addEventListener("click", () => {
+  addTodoPopup.open();
+});
+
 //addTodoButton.addEventListener("click", () => {
 // addTodoPopup.open();
 //});
