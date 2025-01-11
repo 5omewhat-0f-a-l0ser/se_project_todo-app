@@ -66,7 +66,7 @@ const section = new Section({
     renderTodo(item);
  }, 
  containerSelector: '.todos__list' 
-});  
+});    
 section.renderItems(); 
 
 //addTodoButton.addEventListener("click", () => {
