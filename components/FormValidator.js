@@ -65,7 +65,7 @@ class FormValidate {
   }
   enableValidation = () => {
     this._formEl.addEventListener("submit", (evt) => {
-      //this._resetValidation();
+      this._resetValidation();
       evt.preventDefault();
     });
     this._setEventListeners();

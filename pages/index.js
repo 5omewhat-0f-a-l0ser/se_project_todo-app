@@ -15,7 +15,7 @@ const addTodoCloseBtn = addTodoPopupEL.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
-todoCounter._updateText();
+todoCounter.updateText();
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
@@ -26,6 +26,9 @@ const addTodoPopup = new PopupWithForm({
 
     const values = { name, date: new Date(dateInput), id };
     renderTodo(values);
+
+    const todo = generateTodo(values);
+    Section.append(todo);
 
     newTodoValidator.resetValidation();
 
@@ -62,10 +65,8 @@ const generateTodo = (data) => {
 
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    renderTodo(item);
- }, 
- containerSelector: '.todos__list' 
+  renderTodo(items); 
+  containerSelector: '.todos__list' 
 });    
 section.renderItems(); 
 
