@@ -15,7 +15,7 @@ class TodoCounter {
       } else if (this._completed > 0) {
         this._completed--;
       }
-      this._updateText();
+      this.updateText();
       
     };
     
@@ -26,7 +26,7 @@ class TodoCounter {
         this._total--;
       }
 
-      this._updateText();
+      this.updateText();
     };
   
     // Call the method to update the text content
